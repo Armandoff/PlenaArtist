@@ -1,0 +1,7 @@
+{
+  "name": "Plena",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

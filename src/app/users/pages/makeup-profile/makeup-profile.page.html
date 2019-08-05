@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
+    <ion-title>Maquiadora</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  
+  <ion-grid>
+    <ion-row justify-content-center align-items-center>
+      <ion-col text-center>
+        <h1>{{ user.displayName }}</h1>
+        <ion-icon name="star" class="icon_yellow"></ion-icon>
+        <ion-icon name="star" class="icon_yellow"></ion-icon>
+        <ion-icon name="star" class="icon_yellow"></ion-icon>
+        <ion-icon name="star" class="icon_yellow"></ion-icon>
+        <ion-icon name="star" class="icon_gray"> </ion-icon>
+      </ion-col>
+      <ion-col>
+        <ion-img class="img" [src]="artistData.image"></ion-img>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row justify-content-center align-items-center>
+      <ion-col text-center class="specialties">
+        <h1>{{ artistData.specialties }}</h1>
+      </ion-col>
+    </ion-row>
+    
+    <ion-row justify-content-center align-items-center>
+        <ion-col text-center class="featured-work">
+          <ion-slides [options]="sliderOpts">
+            <ion-slide *ngFor="let img of images">
+              <img [src]="img" tappable (click)="openPreview(img)">
+            </ion-slide>
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+
+
+    <ion-row justify-content-center align-items-center>
+      <ion-col text-center class="comments">
+        <h1>Comentários</h1>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>

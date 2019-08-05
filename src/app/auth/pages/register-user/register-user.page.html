@@ -1,0 +1,69 @@
+
+<ion-content padding>
+  
+  <ion-grid>
+    <ion-row justify-content-center align-items-center>
+      <ion-col size-xs="12" size-sm="8" size-md="5" size-lg="4" size-xl="4">
+        <h1 text-center>
+          Complete as configurações do seu perfil
+          <!--
+            <ion-icon name="done-all" color="primary" class="icon-7em"></ion-icon>
+          --> 
+        </h1>
+        
+        <form [formGroup]="registerForm" (submit)="onSubmit()">
+          
+          <ion-item>
+            <ion-input type="text" placeholder="Perfil" formControlName="profile" disabled></ion-input>
+            <ion-note slot="end" color="danger" *ngIf="profile.dirty && profile.hasError('required')">Obrigatório</ion-note>
+          </ion-item>
+
+          <img [src]="fotoUrl | async" *ngIf="fotoUrl | async" style="height: 150px;">
+            
+            <ion-item>
+              <ion-input type="text" placeholder="Foto" formControlName="image" disabled></ion-input>
+              <ion-button (click)="openGalery()">Escolher foto</ion-button>
+              <ion-label> {{ uploadPercent | async }}</ion-label>
+              <!--<ion-note slot="end" color="danger" *ngIf="image.dirty && image.hasError('required')">Obrigatório</ion-note>-->
+            </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Telefone" formControlName="phone"></ion-input>
+            <ion-note slot="end" color="danger" *ngIf="phone.dirty && phone.hasError('required')">Obrigatório</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="number" placeholder="Avaliações" formControlName="rating"></ion-input>
+            <!--<ion-note slot="end" color="danger" *ngIf="rating.dirty && rating.hasError('required')">Obrigatório</ion-note>-->
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="number" placeholder="Maquiagens feitas" formControlName="makeupsMade"></ion-input>
+            <!--<ion-note slot="end" color="danger" *ngIf="makeupsMade.dirty && makeupsMade.hasError('required')">Obrigatório</ion-note>-->
+          </ion-item>
+
+          <h2>Endereço</h2>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Bairro" formControlName="district"></ion-input>
+            <ion-note slot="end" color="danger" *ngIf="district.dirty && district.hasError('required')">Obrigatório</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Rua" formControlName="street"></ion-input>
+            <ion-note slot="end" color="danger" *ngIf="street.dirty && street.hasError('required')">Obrigatório</ion-note>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Número da casa" formControlName="houseNumber"></ion-input>
+            <ion-note slot="end" color="danger" *ngIf="houseNumber.dirty && houseNumber.hasError('required')">Obrigatório</ion-note>
+          </ion-item>
+          
+          <ion-button expand="block" type="submit" [disabled]="registerForm.invalid">Salvar Perfil</ion-button>
+        </form>
+      
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
