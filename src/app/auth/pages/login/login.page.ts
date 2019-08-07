@@ -23,7 +23,6 @@ export class LoginPage implements OnInit {
   };
 
   private nameControl = new FormControl('', [Validators.required, Validators.minLength(3)]);
-  private perfilControl = new FormControl('', [Validators.required]);
 
   constructor(private authService: AuthService, private fb: FormBuilder,
               private overlayService: OverlayService, private navCtrl: NavController,
@@ -44,10 +43,6 @@ export class LoginPage implements OnInit {
     return <FormControl>this.authForm.get('name');
   }
 
-  get perfil(): FormControl {
-    return <FormControl>this.authForm.get('perfil');
-  }
-
   get email(): FormControl {
     return <FormControl>this.authForm.get('email');
   }
@@ -63,10 +58,8 @@ export class LoginPage implements OnInit {
     this.configs.actionChange = isSignIn ? 'Create account' : 'Already have an account';
     if (!isSignIn) {
       this.authForm.addControl('name' , this.nameControl);
-      this.authForm.addControl('perfil' , this.perfilControl);
     } else {
       this.authForm.removeControl('name');
-      this.authForm.removeControl('perfil');
     }
     //!isSignIn ? this.authForm.addControl('name' , this.nameControl)
     //: this.authForm.removeControl('name');
@@ -84,11 +77,7 @@ export class LoginPage implements OnInit {
       console.log('Authenticated: ', credentials);
       console.log('Redirecting...');
       if (this.configs.isSignIn === false) {
-        if (this.authForm.value.perfil === 'Maquiadora') {
           this.navCtrl.navigateForward('/login/register-makeup');
-        } else if (this.authForm.value.perfil === 'Usuario') {
-          this.navCtrl.navigateForward('/login/register-user');
-        }
       } else {
         this.navCtrl.navigateForward(this.route.snapshot.queryParamMap.get('redirect') || '/makeup');
       }

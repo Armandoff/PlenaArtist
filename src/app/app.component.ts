@@ -20,8 +20,7 @@ export class AppComponent {
     private authService: AuthService,
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar,
-    private db: AngularFirestore
+    private statusBar: StatusBar
   ) {
     this.initializeApp();
   }

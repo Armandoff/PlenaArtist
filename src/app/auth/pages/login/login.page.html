@@ -20,15 +20,6 @@
                   <ion-note slot="end" color="danger" *ngIf="name.dirty && name.hasError('required')">Obrigatório</ion-note>
                   <ion-note slot="end" color="danger" *ngIf="name.dirty && name.hasError('minlength')">Mínino de 3 caracteres</ion-note>
               </ion-item>
-              <ion-item>
-                <ion-icon name="person" color="primary" slot="start"></ion-icon>
-                <ion-label>Perfil</ion-label>
-                <ion-select placeholder="Select One" formControlName="perfil">
-                  <ion-select-option value="Maquiadora">Maquiadora</ion-select-option>
-                  <ion-select-option value="Usuario">Usuário</ion-select-option>
-                </ion-select>
-                <ion-note slot="end" color="danger" *ngIf="perfil.dirty && perfil.hasError('required')">Obrigatório</ion-note>
-              </ion-item>
           </ng-container>
       
           <ion-item>

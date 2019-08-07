@@ -10,10 +10,6 @@ const routes: Routes = [
         loadChildren: './pages/register-makeup/register-makeup.module#RegisterMakeupPageModule'
       },
       {
-        path: 'register-user',
-        loadChildren: './pages/register-user/register-user.module#RegisterUserPageModule'
-      },
-      {
         path: '',
         loadChildren: './pages/login/login.module#LoginPageModule'
       }
