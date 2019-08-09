@@ -2,7 +2,7 @@ import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firest
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Artist } from './../../makeup/models/artist.model';
+import { Artist } from 'src/app/core/models/artist.model';
 import { AuthService } from './../../core/services/auth.service';
 
 @Injectable({

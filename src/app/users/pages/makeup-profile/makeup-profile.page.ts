@@ -4,9 +4,8 @@ import { take } from 'rxjs/operators';
 
 import { AuthService } from 'src/app/core/services/auth.service';
 import { MakeupProfileService } from './../../services/makeup-profile.service';
-import { MakeupData } from './../../../auth/models/makeupdata';
 import { OverlayService } from 'src/app/core/services/overlay.service';
-import { Artist } from 'src/app/makeup/models/artist.model';
+import { Artist } from 'src/app/core/models/artist.model';
 import { ModalController } from '@ionic/angular';
 import { ImageModalPage } from 'src/app/shared/pages/image-modal/image-modal.page';
 
