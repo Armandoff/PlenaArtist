@@ -8,10 +8,10 @@
 
 <ion-content padding>
   
-  <ion-grid>
+  <ion-grid *ngIf="(artist$ | async) as artist">
     <ion-row justify-content-center align-items-center>
       <ion-col text-center>
-        <h1>{{ user.displayName }}</h1>
+        <h1>{{ artist.name }}</h1>
         <ion-icon name="star" class="icon_yellow"></ion-icon>
         <ion-icon name="star" class="icon_yellow"></ion-icon>
         <ion-icon name="star" class="icon_yellow"></ion-icon>
@@ -19,13 +19,13 @@
         <ion-icon name="star" class="icon_gray"> </ion-icon>
       </ion-col>
       <ion-col>
-        <ion-img class="img" [src]="artistData.image"></ion-img>
+        <ion-img class="img" [src]="artist.image"></ion-img>
       </ion-col>
     </ion-row>
     
     <ion-row justify-content-center align-items-center>
       <ion-col text-center class="specialties">
-        <h1>{{ artistData.specialties }}</h1>
+        <h1>{{ artist.specialties }}</h1>
       </ion-col>
     </ion-row>
     

@@ -1,8 +1,6 @@
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs/operators';
 
-import { AuthService } from 'src/app/core/services/auth.service';
 import { MakeupProfileService } from './../../services/makeup-profile.service';
 import { OverlayService } from 'src/app/core/services/overlay.service';
 import { Artist } from 'src/app/core/models/artist.model';
@@ -16,8 +14,8 @@ import { ImageModalPage } from 'src/app/shared/pages/image-modal/image-modal.pag
 })
 export class MakeupProfilePage implements OnInit {
 
-  artistData$: Observable<Artist>;
-  artistData: Artist;
+  artist$: Observable<Artist>;
+  artist: Artist;
 
   images: Array<string> = [];
 
@@ -28,32 +26,23 @@ export class MakeupProfilePage implements OnInit {
     spaceBetween: 20
   };
 
-  user: firebase.User;
-
   constructor(private overlayService: OverlayService, private makeupProfileService: MakeupProfileService,
-              private authService: AuthService, private modalController: ModalController) { }
+              private modalController: ModalController) { }
 
   async ngOnInit(): Promise<void> {
     const loadingInfo = await this.overlayService.loading();
 
-    this.artistData$ = this.makeupProfileService.getData();
-    this.artistData$.pipe(take(1)).subscribe(artistData => {
-      this.artistData = artistData;
-      this.images.push(this.artistData.foto1);
-      this.images.push(this.artistData.foto2);
-      this.images.push(this.artistData.foto3);
-      this.images.push(this.artistData.foto4);
-      this.images.push(this.artistData.foto5);
+    this.artist$ = this.makeupProfileService.getData();
+    this.artist$.subscribe(artist => {
+      this.artist = artist;
+      this.images.push(artist.foto1);
+      this.images.push(artist.foto2);
+      this.images.push(artist.foto3);
+      this.images.push(artist.foto4);
+      this.images.push(artist.foto5);
+      console.log(this.artist);
       loadingInfo.dismiss();
-      console.log(this.artistData);
     });
-    const loadingUser = await this.overlayService.loading();
-    this.authService.authState$.subscribe(user => {
-      this.user = user;
-      loadingUser.dismiss();
-      console.log(this.user);
-    });
-
 
   }
 
