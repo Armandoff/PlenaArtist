@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { LogoutButtonComponent } from './components/logout-button/logout-button.component';
 import { MenuToggleComponent } from './components/menu-toggle/menu-toggle.component';
+
+import { NgCalendarModule } from 'ionic2-calendar';
 
 @NgModule({
   declarations: [LogoutButtonComponent, MenuToggleComponent],
@@ -12,9 +14,11 @@ import { MenuToggleComponent } from './components/menu-toggle/menu-toggle.compon
   exports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     IonicModule,
     LogoutButtonComponent,
-    MenuToggleComponent
+    MenuToggleComponent,
+    NgCalendarModule
   ]
 })
 export class SharedModule { }

@@ -29,7 +29,7 @@ export class AppComponent {
 
     this.pages = [
       { url: '/makeup-profile', direction: 'forward', icon: 'document', text: 'Perfil'},
-      { url: '/makeup-profile', direction: 'forward', icon: 'apps', text: 'Agendamentos'},
+      { url: '/makeup', direction: 'forward', icon: 'apps', text: 'Agendamentos'},
       { url: '/makeup-profile', direction: 'forward', icon: 'calendar', text: 'Favoritos'},
       { url: '/makeup-profile', direction: 'forward', icon: 'business', text: 'Formas de pagamento'},
       { url: '/makeup-profile', direction: 'forward', icon: 'chatboxes', text: 'Nossas maquiadoras'},

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
+    <ion-title>Maquiadoras</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list *ngIf="(artists$ | async) as artists">
+    <ng-container *ngIf="artists.length > 0; else noArtists">
+      <app-makeup-item *ngFor="let artist of artists" [artist]="artist" (open_perfil)="openPerfil($event)"></app-makeup-item>
+    </ng-container>
+    <ng-template #noArtists>
+      <ion-item lines="none">Não há maquiadoras cadastradas no momento...</ion-item>
+    </ng-template>
+  </ion-list>
+
+</ion-content>

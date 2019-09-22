@@ -43,6 +43,17 @@ export class RegisterMakeupPage implements OnInit {
   public upload5Percent: Observable<number>;
   public foto5: string;
 
+  public events = [
+    { val: 'Casamentos', isChecked: false },
+    { val: 'Formaturas', isChecked: false },
+    { val: 'Festas 15 anos', isChecked: false },
+    { val: 'Aniversários', isChecked: false },
+    { val: 'Festivais', isChecked: false },
+    { val: 'Carnaval', isChecked: false },
+    { val: 'Réveillon', isChecked: false },
+    { val: 'Debutante', isChecked: false }
+  ];
+
   constructor(private fb: FormBuilder, private overlayService: OverlayService,
               private navCtrl: NavController, private registerMakeupService: RegisterMakeupService,
               private camera: Camera, private platform: Platform,
@@ -129,13 +140,12 @@ export class RegisterMakeupPage implements OnInit {
   private createForm(): void {
     this.registerForm = this.fb.group({
       specialties: ['', [Validators.required]],
-      worksdone: [''],
       image: [''],
-      profile: ['Maquiadora', [Validators.required]],
-      rating: [''],
-      district: ['', [Validators.required]],
-      street: ['', [Validators.required]],
-      houseNumber: ['', [Validators.required]]
+      description: [''],
+      phone: ['', [Validators.required]],
+      // district: ['', [Validators.required]],
+      // street: ['', [Validators.required]],
+      // houseNumber: ['', [Validators.required]]
     });
   }
 
@@ -143,22 +153,19 @@ export class RegisterMakeupPage implements OnInit {
     return <FormControl>this.registerForm.get('specialties');
   }
 
-  get worksdone(): FormControl {
-    return <FormControl>this.registerForm.get('worksdone');
-  }
-
   get image(): FormControl {
     return <FormControl>this.registerForm.get('image');
   }
 
-  get profile(): FormControl {
-    return <FormControl>this.registerForm.get('profile');
+  get description(): FormControl {
+    return <FormControl>this.registerForm.get('description');
   }
 
-  get rating(): FormControl {
-    return <FormControl>this.registerForm.get('rating');
+  get phone(): FormControl {
+    return <FormControl>this.registerForm.get('phone');
   }
 
+  /*
   get district(): FormControl {
     return <FormControl>this.registerForm.get('district');
   }
@@ -170,6 +177,7 @@ export class RegisterMakeupPage implements OnInit {
   get houseNumber(): FormControl {
     return <FormControl>this.registerForm.get('houseNumber');
   }
+  */
 
   async onSubmit(): Promise<void> {
     const loading = await this.overlayService.loading({

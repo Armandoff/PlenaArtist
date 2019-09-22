@@ -1,0 +1,25 @@
+<ion-card  class="makeup-card" (click)="open_perfil.emit(artist)">
+  <ion-grid>
+    <ion-row justify-content-center align-items-center>
+      <ion-col class="col_img" size="5" no-padding>
+        <ion-img class="img" [src]=artist.image></ion-img>
+      </ion-col>
+      <ion-col style="overflow: hidden !important">
+        <ion-icon *ngFor="let star of ratingArray" name="star" class="icon_yellow"></ion-icon>
+        <ion-icon *ngFor="let star of grayStarsArray" name="star" class="icon_gray"> </ion-icon>
+        <ion-text class="done">+ {{ artist.worksdone }}</ion-text>
+        <p class="name">{{artist.name}}</p>
+        <p>Especialidades: {{artist.specialties}}</p>
+      </ion-col>
+    </ion-row>
+    <!-- <ion-row>
+      <ion-button (click)="to_schedule.emit(artist); $event.stopPropagation()">
+        Agendar
+      </ion-button>
+      <ion-button (click)="delete_make.emit(artist); $event.stopPropagation()">
+        Deletar
+      </ion-button>
+    </ion-row> -->
+    </ion-grid> 
+</ion-card>
+

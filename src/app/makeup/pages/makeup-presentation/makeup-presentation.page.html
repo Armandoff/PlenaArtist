@@ -1,0 +1,131 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
+      <ion-title>Maquiadora</ion-title>
+      <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+    </ion-toolbar>
+  </ion-header>
+  
+  <!--
+  <ion-content padding>
+    
+    <ion-grid *ngIf="(artist$ | async) as artist">
+      <ion-row justify-content-center align-items-center>
+        <ion-col text-center>
+          <h1>{{ artist.name }}</h1>
+          <ion-icon name="star" class="icon_yellow"></ion-icon>
+          <ion-icon name="star" class="icon_yellow"></ion-icon>
+          <ion-icon name="star" class="icon_yellow"></ion-icon>
+          <ion-icon name="star" class="icon_yellow"></ion-icon>
+          <ion-icon name="star" class="icon_gray"> </ion-icon>
+        </ion-col>
+        <ion-col>
+          <ion-img class="img" [src]="artist.image"></ion-img>
+        </ion-col>
+      </ion-row>
+      
+      <ion-row justify-content-center align-items-center>
+        <ion-col text-center class="specialties">
+          <h1>{{ artist.specialties }}</h1>
+        </ion-col>
+      </ion-row>
+
+      <ion-row justify-content-center align-items-center>
+        <ion-col text-center class="featured-work">
+          <ion-slides [options]="sliderOpts">
+            <ion-slide *ngFor="let img of images">
+              <img [src]="img" tappable (click)="openPreview(img)">
+            </ion-slide>
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row justify-content-center align-items-center>
+        <ion-col text-center class="comments">
+          <h1>Comentários</h1>
+        </ion-col>
+      </ion-row>
+  
+    </ion-grid>
+  
+  </ion-content>
+-->
+  
+  <ion-content *ngIf="(artist$ | async) as artist">
+
+    <ion-row padding>
+      <!-- Avatar -->
+      <ion-col size="3">
+        <img [src]="artist.image" class="avatar" alt="">
+      </ion-col>
+      <!-- Information about user -->
+      <ion-col size="3" text-center >
+        <h6>21</h6>
+        <p no-padding no-margin>posts</p>
+      </ion-col>
+      <ion-col size="3" text-center>
+        <h6>114</h6>
+        <p no-paddin no-margin>followers</p>
+      </ion-col>
+      <ion-col size="3" text-center>
+        <h6>119</h6>
+        <p no-paddin no-margin>following</p>
+      </ion-col>
+    </ion-row>
+  
+    <!-- Edit/follow button -->
+    <ion-row no-padding no-margin>
+      <ion-col no-padding no-margin size="4"></ion-col>
+        <ion-col no-padding no-margin text-center size="8">
+        <button class="edit-button">Edit your profile</button>
+      </ion-col>
+      <ion-col size="3"></ion-col>
+    </ion-row>
+  
+    <!-- Profile info -->
+    <div padding>
+      <p no-margin no-padding><b>{{ artist.name }}</b></p>
+      <p no-padding no-margin class="info">{{ artist.specialties }}</p>
+      <p no-padding no-margin class="info"><a href="#">github.com/candelibas</a></p>
+    </div>
+  
+    <!-- Segments -->
+    <div>
+      <ion-segment [(ngModel)]="profile_segment">
+        <ion-segment-button value="list">
+          <ion-icon name="list"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="tagged">
+          <ion-icon name="photos"></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  
+    <!-- Segment content -->
+    <div [ngSwitch]="profile_segment">
+      <ion-list *ngSwitchCase="'list'">
+        <ion-grid>
+          <ion-row >
+            <ion-col size="4" class="grid_img" *ngFor="let i of images">
+              <img [src]="i" alt="" tappable (click)="openPreview(i)">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-list>
+  
+      <ion-list *ngSwitchCase="'tagged'">
+        
+  
+      </ion-list>
+    </div>
+    
+  
+  
+  </ion-content>
+
+  <ion-footer>
+    <ion-toolbar>
+      <ion-button expand="block"  (click)="schedule()">Agendar horário</ion-button>
+    </ion-toolbar>
+  </ion-footer>
+  
