@@ -1,12 +1,12 @@
 <ion-header>
-    <ion-toolbar color="primary">
-      <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
-      <ion-title>Maquiadora</ion-title>
-      <app-logout-button slot="end" menu="main-menu"></app-logout-button>
-    </ion-toolbar>
-  </ion-header>
-  
-  <!--
+  <ion-toolbar color="primary">
+    <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
+    <ion-title>Maquiadora</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<!--
   <ion-content padding>
     
     <ion-grid *ngIf="(artist$ | async) as artist">
@@ -50,15 +50,44 @@
   
   </ion-content>
 -->
-  
-  <ion-content *ngIf="(artist$ | async) as artist">
 
-    <ion-row padding>
-      <!-- Avatar -->
-      <ion-col size="3">
-        <img [src]="artist.image" class="avatar" alt="">
-      </ion-col>
-      <!-- Information about user -->
+<ion-content *ngIf="(artist$ | async) as artist">
+
+  <ion-row padding>
+    <!-- Avatar -->
+    <ion-col size="3" justify-content-center align-items-center>
+      <img [src]="artist.image" class="avatar" alt="">
+    </ion-col>
+
+    <ion-col size="9">
+      <!-- Profile info -->
+      <div padding>
+        <p><b>{{ artist.name }}</b></p>
+        <p class="info"><b>Telefone/WhatsApp: </b></p>
+        <p class="info">  
+          <a [href]="telefone">{{ artist.phone }}</a>
+        </p>
+      </div>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row style="margin-left: 20px; margin-right: 20px;" *ngIf="artist.description">
+    <ion-col size="12">
+      <p class="info">{{ artist.description }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="margin-left: 20px; margin-right: 20px;">
+    <ion-col size="12">
+      <p class="info"><b>Especialidades: </b></p>
+      <div *ngFor="let spc of artist.specialties">
+        {{ spc }}
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <!-- Information about user 
       <ion-col size="3" text-center >
         <h6>21</h6>
         <p no-padding no-margin>posts</p>
@@ -71,61 +100,77 @@
         <h6>119</h6>
         <p no-paddin no-margin>following</p>
       </ion-col>
-    </ion-row>
-  
-    <!-- Edit/follow button -->
-    <ion-row no-padding no-margin>
-      <ion-col no-padding no-margin size="4"></ion-col>
-        <ion-col no-padding no-margin text-center size="8">
-        <button class="edit-button">Edit your profile</button>
-      </ion-col>
-      <ion-col size="3"></ion-col>
-    </ion-row>
-  
-    <!-- Profile info -->
-    <div padding>
-      <p no-margin no-padding><b>{{ artist.name }}</b></p>
-      <p no-padding no-margin class="info">{{ artist.specialties }}</p>
-      <p no-padding no-margin class="info"><a href="#">github.com/candelibas</a></p>
-    </div>
-  
-    <!-- Segments -->
-    <div>
-      <ion-segment [(ngModel)]="profile_segment">
-        <ion-segment-button value="list">
-          <ion-icon name="list"></ion-icon>
-        </ion-segment-button>
-        <ion-segment-button value="tagged">
-          <ion-icon name="photos"></ion-icon>
-        </ion-segment-button>
-      </ion-segment>
-    </div>
-  
-    <!-- Segment content -->
-    <div [ngSwitch]="profile_segment">
-      <ion-list *ngSwitchCase="'list'">
-        <ion-grid>
-          <ion-row >
-            <ion-col size="4" class="grid_img" *ngFor="let i of images">
-              <img [src]="i" alt="" tappable (click)="openPreview(i)">
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-list>
-  
-      <ion-list *ngSwitchCase="'tagged'">
-        
-  
-      </ion-list>
-    </div>
-    
-  
-  
-  </ion-content>
+    -->
 
+  <!-- Edit/follow button 
+  <ion-row no-padding no-margin>
+    <ion-col no-padding no-margin size="4"></ion-col>
+    <ion-col no-padding no-margin text-center size="8">
+      <button class="edit-button">Editar Perfil</button>
+    </ion-col>
+    <ion-col size="3"></ion-col>
+  </ion-row>
+  -->
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" class="grid_img" *ngFor="let i of images">
+        <img [src]="i" alt="" tappable (click)="openPreview(i)">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+
+  <!-- Segments 
+  <div>
+    <ion-segment [(ngModel)]="profile_segment">
+      <ion-segment-button value="list">
+        <ion-icon name="list"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="tagged">
+        <ion-icon name="photos"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  
+  <div [ngSwitch]="profile_segment">
+    <ion-list *ngSwitchCase="'list'">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" class="grid_img" *ngFor="let i of images">
+            <img [src]="i" alt="" tappable (click)="openPreview(i)">
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'tagged'">
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12">
+            <p padding margin class="info"><b>Especialidades:</b></p>
+          </ion-col>
+          <ion-col>
+            <ion-item *ngFor="let esp of artist.specialties">
+              <ion-label padding margin class="info">{{ esp }}</ion-label>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+    </ion-list>
+  </div>
+-->
+
+</ion-content>
+
+<!--
   <ion-footer>
     <ion-toolbar>
       <ion-button expand="block"  (click)="schedule()">Agendar horário</ion-button>
     </ion-toolbar>
-  </ion-footer>
-  
+  </ion-footer> -->

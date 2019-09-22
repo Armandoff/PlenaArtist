@@ -21,6 +21,7 @@ export class MakeupPresentationPage implements OnInit {
   artist$: Observable<Artist>;
   artistId: string = undefined;
   images: Array<string> = [];
+  telefone: string;
 
   sliderOpts = {
     zoom: false,
@@ -52,6 +53,8 @@ export class MakeupPresentationPage implements OnInit {
       this.images.push(artist.foto3);
       this.images.push(artist.foto4);
       this.images.push(artist.foto5);
+      this.telefone = 'tel:' + artist.phone;
+      console.log(this.telefone);
       loadingInfo.dismiss();
     });
 

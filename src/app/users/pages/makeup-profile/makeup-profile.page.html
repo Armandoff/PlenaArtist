@@ -6,46 +6,57 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  
-  <ion-grid *ngIf="(artist$ | async) as artist">
-    <ion-row justify-content-center align-items-center>
-      <ion-col text-center>
-        <h1>{{ artist.name }}</h1>
-        <ion-icon name="star" class="icon_yellow"></ion-icon>
-        <ion-icon name="star" class="icon_yellow"></ion-icon>
-        <ion-icon name="star" class="icon_yellow"></ion-icon>
-        <ion-icon name="star" class="icon_yellow"></ion-icon>
-        <ion-icon name="star" class="icon_gray"> </ion-icon>
-      </ion-col>
-      <ion-col>
-        <ion-img class="img" [src]="artist.image"></ion-img>
-      </ion-col>
-    </ion-row>
-    
-    <ion-row justify-content-center align-items-center>
-      <ion-col text-center class="specialties">
-        <h1>{{ artist.specialties }}</h1>
-      </ion-col>
-    </ion-row>
-    
-    <ion-row justify-content-center align-items-center>
-        <ion-col text-center class="featured-work">
-          <ion-slides [options]="sliderOpts">
-            <ion-slide *ngFor="let img of images">
-              <img [src]="img" tappable (click)="openPreview(img)">
-            </ion-slide>
-          </ion-slides>
-        </ion-col>
-      </ion-row>
+<ion-content *ngIf="(artist$ | async) as artist">
+
+  <ion-row padding>
+    <!-- Avatar -->
+    <ion-col size="3" justify-content-center align-items-center>
+      <img [src]="artist.image" class="avatar" alt="">
+    </ion-col>
+
+    <ion-col size="9">
+      <!-- Profile info -->
+      <div padding>
+        <p><b>{{ artist.name }}</b></p>
+        <p class="info"><b>Telefone/WhatsApp: </b>{{ artist.phone }}</p>
+      </div>
+    </ion-col>
+
+  </ion-row>
+
+  <ion-row style="margin-left: 20px; margin-right: 20px;" *ngIf="artist.description">
+    <ion-col size="12">
+      <p class="info">{{ artist.description }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="margin-left: 20px; margin-right: 20px;">
+    <ion-col size="12">
+      <p class="info"><b>Especialidades: </b></p>
+      <div *ngFor="let spc of artist.specialties">
+        {{ spc }}
+      </div>
+    </ion-col>
+  </ion-row>
 
 
-    <ion-row justify-content-center align-items-center>
-      <ion-col text-center class="comments">
-        <h1>Comentários</h1>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="4" class="grid_img" *ngFor="let i of images">
+        <img [src]="i" alt="" tappable (click)="openPreview(i)">
       </ion-col>
     </ion-row>
-
   </ion-grid>
+
+  <!--
+  <ion-row no-padding no-margin>
+    <ion-col no-padding no-margin size="4"></ion-col>
+    <ion-col no-padding no-margin text-center size="8">
+      <button class="edit-button">Editar Perfil</button>
+    </ion-col>
+    <ion-col size="3"></ion-col>
+  </ion-row>
+  -->
 
 </ion-content>

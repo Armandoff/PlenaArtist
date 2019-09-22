@@ -5,6 +5,7 @@ export interface Artist {
     name: string;
     image: string;
     phone?: string;
+    description?: string;
     profile?: string;
     artist?: string;
     specialties: Array<string>;

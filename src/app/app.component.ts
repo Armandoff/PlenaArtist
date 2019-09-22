@@ -29,15 +29,9 @@ export class AppComponent {
 
     this.pages = [
       { url: '/makeup-profile', direction: 'forward', icon: 'document', text: 'Perfil'},
-      { url: '/makeup', direction: 'forward', icon: 'apps', text: 'Agendamentos'},
-      { url: '/makeup-profile', direction: 'forward', icon: 'calendar', text: 'Favoritos'},
-      { url: '/makeup-profile', direction: 'forward', icon: 'business', text: 'Formas de pagamento'},
-      { url: '/makeup-profile', direction: 'forward', icon: 'chatboxes', text: 'Nossas maquiadoras'},
-      { url: '/makeup-profile', direction: 'forward', icon: 'card', text: 'Dicas de maquiagem'},
-      { url: '/makeup-profile', direction: 'forward', icon: 'contacts', text: 'Fale conosco'},
-      { url: '/makeup-profile', direction: 'forward', icon: 'cube', text: 'Configurações'},
-      { url: '/makeup-profile', direction: 'forward', icon: 'document', text: 'Ajuda'},
-      { url: '/makeup-profile', direction: 'forward', icon: 'crop', text: 'Seja uma parceira'}
+      { url: '/makeup', direction: 'forward', icon: 'apps', text: 'Lista de Maquiadoras'},
+      { url: '/edit-profile', direction: 'forward', icon: 'calendar', text: 'Editar Perfil'},
+      { url: '/makeup-profile', direction: 'forward', icon: 'business', text: 'Pendente'},
     ];
 
     this.authService.authState$.subscribe( user => this.user = user );

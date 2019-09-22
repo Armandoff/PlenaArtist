@@ -7,7 +7,7 @@ import { Artist } from '../../models/artist.model';
   templateUrl: './makeup-item.component.html',
   styleUrls: ['./makeup-item.component.scss'],
 })
-export class MakeupItemComponent implements OnInit {
+export class MakeupItemComponent {
 
   // <app-makeup-item [artist]="artist" (to_schedule)="toSchedule($event)">
   @Input() artist: Artist;
@@ -16,6 +16,7 @@ export class MakeupItemComponent implements OnInit {
   @Output() edit_make = new EventEmitter<Artist>();
   @Output() delete_make = new EventEmitter<Artist>();
 
+  /*
   public ratingArray?: Array<number>;
   public grayStars?: number;
   public grayStarsArray?: Array<number>;
@@ -25,6 +26,7 @@ export class MakeupItemComponent implements OnInit {
     this.grayStars = await 5 - this.artist.rating;
     this.grayStarsArray = await Array(this.grayStars).fill(1).map((x, i) => i + 1);
   }
+  */
 
 
 }
