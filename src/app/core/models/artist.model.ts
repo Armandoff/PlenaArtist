@@ -2,12 +2,13 @@ export interface Artist {
     id: string;
     title?: string;
     active?: boolean;
+    description: string;
     name: string;
     image: string;
-    phone?: string;
+    phone: string;
     profile?: string;
     artist?: string;
-    specialties: Array<string>;
+    specialties?: Array<string>;
     worksdone?: number;
     rating?: number;
     district?: string;

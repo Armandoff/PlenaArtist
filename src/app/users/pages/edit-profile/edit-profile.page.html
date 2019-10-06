@@ -1,0 +1,161 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
+    <ion-title>Configurações do perfil</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding *ngIf="(artist$ | async) as artist">
+
+  <ion-grid>
+    <ion-row justify-content-center align-items-center>
+      <ion-col size-xs="12" size-sm="8" size-md="5" size-lg="4" size-xl="4">
+
+        <form [formGroup]="registerForm" (submit)="onSubmit()">
+
+          <ion-row>
+            <ion-col style="text-align: center;">
+              <img [src]="fotoPerfilUrl | async" *ngIf="fotoPerfilUrl | async; else elseBlock"
+                style="height: 150px; border-radius: 40%;">
+              <ng-template #elseBlock><img [src]="artist.image" style="height: 150px; border-radius: 40%;">
+              </ng-template>
+            </ion-col>
+          </ion-row>
+
+
+          <ion-item>
+            <ion-input type="text" placeholder="Foto de perfil" formControlName="image" disabled></ion-input>
+            <ion-button (click)="openGalery('fotoPerfil', 0)">Escolher foto</ion-button>
+            <ion-label> {{ uploadPerfilPercent | async }}</ion-label>
+            <!--<ion-note slot="end" color="danger" *ngIf="image.dirty && image.hasError('required')">Obrigatório</ion-note>-->
+          </ion-item>
+
+          <!--
+            <ion-item>
+              <ion-label>Especialidades</ion-label>
+              <ion-select multiple="true" cancelText="Cancel" okText="Ok" formControlName="specialties">
+                <ion-select-option *ngFor="let ev of events">{{ev.val}}</ion-select-option>
+                <ion-note slot="end" color="danger" *ngIf="specialties.dirty && specialties.hasError('required')">
+                  Obrigatório
+                </ion-note>
+              </ion-select>
+            </ion-item>
+          -->
+
+          <ion-item>
+            <ion-textarea placeholder="Entre com uma breve descrição do seu trabalho" formControlName="description">
+            </ion-textarea>
+          </ion-item>
+
+          <h2>Contato</h2>
+
+          <ion-item>
+            <ion-input type="tel" inputmode="tel" placeholder="Telefone/Whatsapp" formControlName="phone"></ion-input>
+            <ion-note slot="end" color="danger" *ngIf="phone.dirty && phone.hasError('required')">Obrigatório
+            </ion-note>
+          </ion-item>
+
+          <!--
+            <h2>Endereço</h2>
+  
+            <ion-item>
+              <ion-input type="text" placeholder="Bairro" formControlName="district"></ion-input>
+              <ion-note slot="end" color="danger" *ngIf="district.dirty && district.hasError('required')">Obrigatório
+              </ion-note>
+            </ion-item>
+  
+            <ion-item>
+              <ion-input type="text" placeholder="Rua" formControlName="street"></ion-input>
+              <ion-note slot="end" color="danger" *ngIf="street.dirty && street.hasError('required')">Obrigatório
+              </ion-note>
+            </ion-item>
+  
+            <ion-item>
+              <ion-input type="text" placeholder="Número da casa" formControlName="houseNumber"></ion-input>
+              <ion-note slot="end" color="danger" *ngIf="houseNumber.dirty && houseNumber.hasError('required')">
+                Obrigatório</ion-note>
+            </ion-item>
+            -->
+
+          <h2>Galeria</h2>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Foto 1" disabled></ion-input>
+            <ion-button (click)="openGalery('foto1', 1)">Escolher foto</ion-button>
+            <ion-label> {{ upload1Percent | async }}</ion-label>
+            <!--<ion-note slot="end" color="danger" *ngIf="image.dirty && image.hasError('required')">Obrigatório</ion-note>-->
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Foto 2" disabled></ion-input>
+            <ion-button (click)="openGalery('foto2', 2)">Escolher foto</ion-button>
+            <ion-label> {{ upload2Percent | async }}</ion-label>
+            <!--<ion-note slot="end" color="danger" *ngIf="image.dirty && image.hasError('required')">Obrigatório</ion-note>-->
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Foto 3" disabled></ion-input>
+            <ion-button (click)="openGalery('foto3', 3)">Escolher foto</ion-button>
+            <ion-label> {{ upload3Percent | async }}</ion-label>
+            <!--<ion-note slot="end" color="danger" *ngIf="image.dirty && image.hasError('required')">Obrigatório</ion-note>-->
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Foto 4" disabled></ion-input>
+            <ion-button (click)="openGalery('foto4', 4)">Escolher foto</ion-button>
+            <ion-label> {{ upload4Percent | async }}</ion-label>
+            <!--<ion-note slot="end" color="danger" *ngIf="image.dirty && image.hasError('required')">Obrigatório</ion-note>-->
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="text" placeholder="Foto 5" disabled></ion-input>
+            <ion-button (click)="openGalery('foto5', 5)">Escolher foto</ion-button>
+            <ion-label> {{ upload5Percent | async }}</ion-label>
+            <!--<ion-note slot="end" color="danger" *ngIf="image.dirty && image.hasError('required')">Obrigatório</ion-note>-->
+          </ion-item>
+
+          <ion-grid>
+            <ion-row>
+              <ion-col size="4" class="grid_img">
+                  <img [src]="foto1Url | async" alt="" tappable (click)="openGalery('foto1' , 1)" *ngIf="foto1Url | async; else else1Block"> 
+                <ng-template #else1Block>
+                  <img [src]="artist.foto1" alt="" tappable (click)="openGalery('foto1' , 1)"> 
+                </ng-template>
+              </ion-col>
+              <ion-col size="4" class="grid_img">
+                  <img [src]="foto2Url | async" alt="" tappable (click)="openGalery('foto2' , 2)" *ngIf="foto2Url | async; else else2Block"> 
+                <ng-template #else2Block>
+                  <img [src]="artist.foto2" alt="" tappable (click)="openGalery('foto2' , 2)"> 
+                </ng-template>
+              </ion-col>
+              <ion-col size="4" class="grid_img">
+                  <img [src]="foto3Url | async" alt="" tappable (click)="openGalery('foto3' , 3)" *ngIf="foto3Url | async; else else3Block"> 
+                <ng-template #else3Block>
+                  <img [src]="artist.foto3" alt="" tappable (click)="openGalery('foto3' , 3)"> 
+                </ng-template>
+              </ion-col>
+              <ion-col size="4" class="grid_img">
+                  <img [src]="foto4Url | async" alt="" tappable (click)="openGalery('foto4' , 4)" *ngIf="foto4Url | async; else else4Block"> 
+                <ng-template #else4Block>
+                  <img [src]="artist.foto4" alt="" tappable (click)="openGalery('foto4' , 4)"> 
+                </ng-template>
+              </ion-col>
+              <ion-col size="4" class="grid_img">
+                  <img [src]="foto5Url | async" alt="" tappable (click)="openGalery('foto5' , 5)" *ngIf="foto5Url | async; else else5Block"> 
+                <ng-template #else5Block>
+                  <img [src]="artist.foto5" alt="" tappable (click)="openGalery('foto5' , 5)"> 
+                </ng-template>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+
+          <ion-button expand="block" type="submit" [disabled]="registerForm.invalid">Salvar Perfil</ion-button>
+        </form>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

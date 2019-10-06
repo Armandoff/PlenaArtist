@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'login', loadChildren: './auth/auth.module#AuthModule' },
   { path: 'makeup', loadChildren: './makeup/makeup.module#MakeupModule', canLoad: [AuthGuard] },
   { path: 'makeup-profile', loadChildren: './users/pages/makeup-profile/makeup-profile.module#MakeupProfilePageModule', canLoad: [AuthGuard] },
-  { path: 'image-modal', loadChildren: './shared/pages/image-modal/image-modal.module#ImageModalPageModule', canLoad: [AuthGuard] }
+  { path: 'image-modal', loadChildren: './shared/pages/image-modal/image-modal.module#ImageModalPageModule', canLoad: [AuthGuard] },
+  { path: 'edit-profile', loadChildren: './users/pages/edit-profile/edit-profile.module#EditProfilePageModule', canLoad: [AuthGuard] }
 ];
 
 @NgModule({
