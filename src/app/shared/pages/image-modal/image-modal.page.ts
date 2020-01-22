@@ -38,7 +38,7 @@ export class ImageModalPage implements OnInit {
     }
   }
 
-  close(ev: Event) {
+  close() {  // retirei argumento ev: Event
     this.modalController.dismiss();
     this.platform.ready().then(() => {
       document.removeEventListener('backbutton', this.close, false); // nao funciona ainda
