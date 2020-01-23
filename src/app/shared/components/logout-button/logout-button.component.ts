@@ -7,11 +7,9 @@ import { OverlayService } from 'src/app/core/services/overlay.service';
 @Component({
   selector: 'app-logout-button',
   template: `
-    <ion-buttons>
-      <ion-button (click)="logout()">
-        <ion-icon name="exit" slot="icon-only"></ion-icon>
+      <ion-button expand="full" (click)="logout()">
+        <ion-icon name="exit" slot="icon-only"></ion-icon>Sair
       </ion-button>
-    </ion-buttons>
   `
 })
 export class LogoutButtonComponent implements OnInit {

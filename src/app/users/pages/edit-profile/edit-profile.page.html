@@ -2,7 +2,6 @@
   <ion-toolbar color="primary">
     <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
     <ion-title>Configurações do perfil</ion-title>
-    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
   </ion-toolbar>
 </ion-header>
 
@@ -150,8 +149,8 @@
             </ion-row>
           </ion-grid>
 
-
-          <ion-button expand="block" type="submit" [disabled]="registerForm.invalid">Salvar Perfil</ion-button>
+          <ion-button expand="full"  type="submit" [disabled]="registerForm.invalid">Salvar Perfil</ion-button>
+          <app-logout-button  menu="main-menu">Sair</app-logout-button>
         </form>
 
       </ion-col>

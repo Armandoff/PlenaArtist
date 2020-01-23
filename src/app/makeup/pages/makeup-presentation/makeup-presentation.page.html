@@ -2,7 +2,6 @@
   <ion-toolbar color="primary">
     <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
     <ion-title>Maquiadora</ion-title>
-    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
   </ion-toolbar>
 </ion-header>
 
@@ -63,9 +62,9 @@
       <!-- Profile info -->
       <div padding>
         <p><b>{{ artist.name }}</b></p>
-        <p class="info"><b>Telefone/WhatsApp: </b></p>
+        <p class="info"><b>Telefone: </b> <a [href]="telefone">{{ artist.phone }}</a></p>
         <p class="info">  
-          <a [href]="telefone">{{ artist.phone }}</a>
+          <a [href]="linkWhatsapp">Enviar mensagem via Whatsapp</a>
         </p>
       </div>
     </ion-col>

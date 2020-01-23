@@ -22,6 +22,8 @@ export class MakeupPresentationPage implements OnInit {
   artistId: string = undefined;
   images: Array<string> = [];
   telefone: string;
+  linkWhatsapp: string;
+  mensagemWhatsapp: string = '&text=Ol%C3%A1%2C%20te%20encontrei%20pelo%20App%20Plena%20e%20gostaria%20de%20tirar%20algumas%20d%C3%BAvidas!';
 
   sliderOpts = {
     zoom: false,
@@ -48,6 +50,7 @@ export class MakeupPresentationPage implements OnInit {
     this.artist$ = this.document.valueChanges();
     this.artist$.subscribe((artist) => {
       this.artist = artist;
+      this.linkWhatsapp = 'https://api.whatsapp.com/send?phone=55' + artist.phone + this.mensagemWhatsapp;
       this.images.push(artist.foto1);
       this.images.push(artist.foto2);
       this.images.push(artist.foto3);
