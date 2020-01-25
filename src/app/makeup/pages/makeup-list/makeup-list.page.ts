@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController, Platform } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NavController, Platform, IonRouterOutlet, ModalController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { OverlayService } from 'src/app/core/services/overlay.service';
 import { take } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 import { ArtistsService } from './../../services/artists.service';
-import { MakeUp } from '../../models/makeup.model';
 import { Artist } from '../../models/artist.model';
 
 @Component({
@@ -15,6 +15,8 @@ import { Artist } from '../../models/artist.model';
 })
 export class MakeupListPage implements OnInit {
 
+  @ViewChild(IonRouterOutlet) routerOutlet: IonRouterOutlet;
+
   artists: Observable<any[]>;
 
   // makeups$: Observable<MakeUp[]>;
@@ -23,16 +25,45 @@ export class MakeupListPage implements OnInit {
   subscribe: any;
 
   constructor(private navCtrl: NavController, private overlayService: OverlayService,
-              private artistsService: ArtistsService, public platform: Platform) {
+              private artistsService: ArtistsService, public platform: Platform,
+              private router: Router, private modalCtrl: ModalController) {
 
-                this.subscribe = this.platform.backButton.subscribeWithPriority(666666, () => {
-                  if (this.constructor.name == "MakeupListPage") {
-                    if (window.confirm("Deseja sair do App")) {
-                      navigator["app"].exitApp();
+                /*this.subscribe = this.platform.backButton.subscribe(() => {
+                  if (this.constructor.name === 'MakeupListPage') {
+                    if (window.confirm('Deseja sair do App')) {
+                      navigator['app'].exitApp();
                     }
                   }
+                });*/
+
+                /*
+                this.platform.ready().then(() => {
+                  document.addEventListener('backbutton', () => {
+                    if (this.constructor.name === 'MakeupListPage') {
+                      if (window.confirm('Deseja sair do App?') {
+                        navigator['app'].exitApp();
+                      }
+                    }
+                  });
+                });*/
+
+
+                this.platform.ready().then(() => {
+                  document.addEventListener('backbutton', () => {
+                    if (this.router.url === '/makeup') {
+                      if (window.confirm('Deseja sair do App?')) {
+                        navigator['app'].exitApp();
+                      }
+                    } else {
+                      if (modalCtrl.getTop()) {
+                        modalCtrl.dismiss();
+                      }
+                      this.navCtrl.pop();
+                    }
                 });
+              });
             }
+
 
   async ngOnInit(): Promise<void> {
      const loading = await this.overlayService.loading();

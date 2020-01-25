@@ -211,7 +211,7 @@ export class RegisterMakeupPage implements OnInit {
       await this.registerMakeupService.setItem({foto5 : this.foto5});
       console.log('Informações Salvas: ', this.registerForm.value);
       // this.navCtrl.navigateForward('/makeup-profile');
-      this.router.navigateByUrl('/makeup-profile');
+      this.router.navigateByUrl('/makeup');
     } catch (error) {
       console.log('Erro ao salvar dados: ', error);
       await this.overlayService.toast({

@@ -25,7 +25,8 @@ export class ImageModalPage implements OnInit {
     this.img = this.navParams.get('img');
 
     this.platform.ready().then(() => {
-      document.addEventListener('backbutton', this.close, false); // nao funciona ainda
+      // document.addEventListener('backbutton', this.close, false); // nao funciona ainda
+      document.removeEventListener('backbutton', this.close, false);
     });
   }
 
