@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, Platform } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { OverlayService } from 'src/app/core/services/overlay.service';
 import { take } from 'rxjs/operators';
@@ -20,9 +20,18 @@ export class MakeupListPage implements OnInit {
   // makeups$: Observable<MakeUp[]>;
   artists$: Observable<Artist[]>;
 
-  constructor(private navCtrl: NavController, private overlayService: OverlayService,
-              private artistsService: ArtistsService) {
+  subscribe: any;
 
+  constructor(private navCtrl: NavController, private overlayService: OverlayService,
+              private artistsService: ArtistsService, public platform: Platform) {
+
+                this.subscribe = this.platform.backButton.subscribeWithPriority(666666, () => {
+                  if (this.constructor.name == "MakeupListPage") {
+                    if (window.confirm("Deseja sair do App")) {
+                      navigator["app"].exitApp();
+                    }
+                  }
+                });
             }
 
   async ngOnInit(): Promise<void> {

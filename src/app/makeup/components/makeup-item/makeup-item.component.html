@@ -1,5 +1,5 @@
 
-<ion-card class="makeup-card" (click)="open_perfil.emit(artist)">
+<ion-card class="makeup-card" (click)="open_perfil.emit(artist)" *ngIf="artist.isActive == true">
   <ion-grid>
     <ion-row justify-content-center align-items-center>
       <ion-col class="col_img" size="5" no-padding>

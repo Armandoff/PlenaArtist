@@ -259,6 +259,7 @@ export class EditProfilePage implements OnInit {
         this.image.setValue(this.artist.image);
       }
       await this.editProfileService.setItem(this.registerForm.value);
+      await this.editProfileService.setItem({ isActive: true });
 
       if (this.foto1) {
         await this.editProfileService.setItem({ foto1: this.foto1 });

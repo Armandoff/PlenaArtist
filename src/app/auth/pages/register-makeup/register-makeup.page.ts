@@ -203,6 +203,7 @@ export class RegisterMakeupPage implements OnInit {
     try {
       this.image.setValue(this.fotoPerfil);
       await this.registerMakeupService.setItem(this.registerForm.value);
+      await this.registerMakeupService.setItem({ isActive: true });
       await this.registerMakeupService.setItem({foto1 : this.foto1});
       await this.registerMakeupService.setItem({foto2 : this.foto2});
       await this.registerMakeupService.setItem({foto3 : this.foto3});

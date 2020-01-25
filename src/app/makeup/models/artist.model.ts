@@ -1,7 +1,7 @@
 export interface Artist {
     id: string;
     title?: string;
-    active?: boolean;
+    isActive?: boolean;
     name: string;
     image: string;
     phone?: string;
