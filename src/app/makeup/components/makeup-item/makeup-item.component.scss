@@ -1,6 +1,6 @@
 .makeup-card {
-    max-height: 100px;
-    height: 100px;
+    max-height: 140px;
+    height: 140px;
     overflow: hidden !important;
     box-shadow: 5px 3px 3px pink;
   }
@@ -8,12 +8,21 @@
   .img {
     max-height: 100px !important;
     //height: 150px;
-    border-radius: 30px;
+    //border-radius: 30px;
     margin: auto;
+    bottom: 0;
+    width: 100%;
+    //transform: scale(1.4);
+    object-fit: cover;
   }
 
   .col_img {
     height: 130px;
+    margin: auto;
+    border-radius: 10%;
+    //width: 100px;
+    //height: 100px;
+    overflow: hidden;
     margin: auto;
   }
   
