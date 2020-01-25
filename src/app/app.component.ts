@@ -28,9 +28,9 @@ export class AppComponent {
   initializeApp() {
 
     this.pages = [
-      { url: '/makeup-profile', direction: 'forward', icon: 'document', text: 'Perfil'},
+      { url: '/makeup-profile', direction: 'forward', icon: 'document', text: 'Meu Perfil'},
       { url: '/makeup', direction: 'forward', icon: 'apps', text: 'Lista de Maquiadoras'},
-      { url: '/edit-profile', direction: 'forward', icon: 'calendar', text: 'Editar Perfil'},
+      { url: '/edit-profile', direction: 'forward', icon: 'calendar', text: 'Configurações'},
       { url: '/makeup-profile', direction: 'forward', icon: 'business', text: 'Pendente'},
     ];
 

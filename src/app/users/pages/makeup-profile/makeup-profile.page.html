@@ -12,23 +12,44 @@
 
   <ion-row padding>
     <!-- Avatar -->
-    <ion-col size="3" justify-content-center align-items-center>
-      <img [src]="artist.image" class="avatar" alt="">
+    <ion-col size="5" class="col_avatar" justify-content-center align-items-center>
+      <div class="circle" justify-content-center align-items-center>
+        <img [src]="artist.image"  alt="">
+      </div>
+      <p></p>
+      <ion-icon name="star" style="color: yellow;"></ion-icon>
+      <ion-icon name="star" style="color: yellow;"></ion-icon>
+      <ion-icon name="star" style="color: yellow;"></ion-icon>
+      <ion-icon name="star" style="color: yellow;"></ion-icon>
+      <ion-icon name="star" style="color: yellow;"></ion-icon>
+      +99
     </ion-col>
 
-    <ion-col size="9">
+    
+
+    <ion-col size="7">
       <!-- Profile info -->
       <div padding>
-        <p><b>{{ artist.name }}</b></p>
-        <p class="info"><b>Telefone/WhatsApp: </b>{{ artist.phone }}</p>
+        <p style="font-family: Comic Sans MS, Comic Sans, cursive; font-size: 20px;"><b>{{ artist.name }}</b></p>
+        <p class="info"><b>Telefone: </b> <a [href]="telefone">{{ artist.phone }}</a></p>
+        <p class="info">  
+          <a [href]="linkWhatsapp">Enviar mensagem via Whatsapp</a>
+        </p>
       </div>
     </ion-col>
-
   </ion-row>
+
 
   <ion-row style="margin-left: 20px; margin-right: 20px;" *ngIf="artist.description">
     <ion-col size="12">
       <p class="info">{{ artist.description }}</p>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="margin-left: 20px; margin-right: 20px;" *ngIf="artist.specialties">
+    <ion-col *ngFor="let esp of artist.specialties" size="4" class="info">
+      <ion-icon name="checkmark" ></ion-icon>
+          {{ esp }}
     </ion-col>
   </ion-row>
 

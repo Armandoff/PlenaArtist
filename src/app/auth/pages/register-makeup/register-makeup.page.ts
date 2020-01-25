@@ -50,7 +50,7 @@ export class RegisterMakeupPage implements OnInit {
   public foto5: string;
   public foto5Ok: string;
 
-  /*
+
   public events = [
     { val: 'Casamentos', isChecked: false },
     { val: 'Formaturas', isChecked: false },
@@ -61,7 +61,7 @@ export class RegisterMakeupPage implements OnInit {
     { val: 'Réveillon', isChecked: false },
     { val: 'Debutante', isChecked: false }
   ];
-  */
+
 
   constructor(private fb: FormBuilder, private overlayService: OverlayService,
               private navCtrl: NavController, private registerMakeupService: RegisterMakeupService,
@@ -154,7 +154,7 @@ export class RegisterMakeupPage implements OnInit {
 
   private createForm(): void {
     this.registerForm = this.fb.group({
-      // specialties: ['', [Validators.required]],
+      specialties: ['', [Validators.required]],
       image: [''],
       description: [''],
       phone: ['', [Validators.required]],
@@ -164,11 +164,11 @@ export class RegisterMakeupPage implements OnInit {
     });
   }
 
-  /*
+
   get specialties(): FormControl {
     return <FormControl>this.registerForm.get('specialties');
   }
-  */
+
 
   get image(): FormControl {
     return <FormControl>this.registerForm.get('image');

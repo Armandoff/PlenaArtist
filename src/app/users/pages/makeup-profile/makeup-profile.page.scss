@@ -36,12 +36,38 @@ ion-slides {
   }
 }
 
+.col_avatar {
+  text-align: center !important;
+  color: #e5e619;
+}
+
 /* Profile avatar */
 .avatar {
-  border-radius: 30%;
+  overflow: hidden;
+  border-radius: 20%;
   margin: auto;
-  // height: 100px;
+  //height: 150px;
+  //width: 150px;
   // position: absolute;
+}
+
+.circle {
+  //background-color: #aaa;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  margin: auto;
+  //position: relative;
+}
+
+.circle img {
+  //position: absolute;
+  margin: auto;
+  bottom: 0;
+  width: 100%;
+  transform: scale(1.4);
+  object-fit: cover;
 }
 
 /* Small for notifications */

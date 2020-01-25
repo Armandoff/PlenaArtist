@@ -36,6 +36,11 @@ ion-slides {
   }
 }
 
+.col_avatar {
+  text-align: center !important;
+  color: #e5e619;
+}
+
 /* Profile avatar */
 .avatar {
   overflow: hidden;
@@ -83,8 +88,10 @@ ion-slides {
 }
 
 .info {
-  padding-top: 4px;
+  //padding-top: 4px;
   overflow: hidden;
+  font-family: Comic Sans MS, Comic Sans, cursive !important;
+  //font-style: oblique;
 }
 
 /* Profile edit button */

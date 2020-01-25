@@ -17,9 +17,10 @@
         <form [formGroup]="registerForm" (submit)="onSubmit()">
 
           <ion-row>
-            <ion-col style="text-align: center;">
-              <img [src]="fotoPerfilUrl | async" *ngIf="fotoPerfilUrl | async; else elseBlock"
-                style="height: 150px; border-radius: 40%;">
+            <ion-col class="col_avatar" justify-content-center align-items-center>
+              <div class="circle" justify-content-center align-items-center>
+                <img [src]="fotoPerfilUrl | async" *ngIf="fotoPerfilUrl | async; else elseBlock">
+              </div>
               <ng-template #elseBlock><img [src]="artist.image" style="height: 150px; border-radius: 40%;">
               </ng-template>
             </ion-col>
