@@ -58,6 +58,7 @@ ion-slides {
   height: 130px;
   overflow: hidden;
   margin: auto;
+  box-shadow: 0px 0px 20px 0px pink;
   //position: relative;
 }
 
@@ -66,8 +67,8 @@ ion-slides {
   margin: auto;
   bottom: 0;
   width: 100%;
-  transform: scale(1.4);
-  object-fit: cover;
+  transform: scale(1);
+  object-fit: contain;
 }
 
 /* Small for notifications */
@@ -109,4 +110,21 @@ ion-slides {
 
 .edit-button:active {
   border-color: #dce2ed;
+}
+
+.grid_img {
+   width: 100px;
+   height: 100px;
+   overflow: hidden;
+   
+   position: relative;
+}
+
+.grid_img img {
+  position: absolute;
+  margin: auto;
+  width: 100%;
+  transform: scale(1);
+  object-fit: contain;
+  margin: 2px 2px 2px 2px;
 }

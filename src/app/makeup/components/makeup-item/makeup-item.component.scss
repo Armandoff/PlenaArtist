@@ -14,16 +14,19 @@
     width: 100%;
     //transform: scale(1.4);
     object-fit: cover;
+    
   }
 
   .col_img {
-    height: 100px;
+    //height: 100px;
     margin: auto;
     border-radius: 10%;
     //width: 100px;
     //height: 100px;
     overflow: hidden;
     margin: auto;
+    box-shadow: 0px 0px 20px 0px pink;
+    overflow: hidden;
   }
   
   ion-card{

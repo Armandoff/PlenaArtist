@@ -5,14 +5,14 @@
       <ion-col class="col_img" size="3" no-padding>
         <ion-img class="img" [src]=artist.image></ion-img>
       </ion-col>
-      <ion-col style="overflow: hidden !important">
+      <ion-col style="overflow: hidden !important; max-height: 110px;">
 
         <ion-row>
           <ion-col size="9">
             <p class="name"><b>{{artist.name}}</b></p>
           </ion-col>
           <ion-col style="color: #e5e619;">
-            <ion-icon src="/assets/star.svg" style="font-size: 25px; color: gray;"></ion-icon>
+            <ion-icon src="/assets/star.svg" style="font-size: 25px; color: #e5e619;"></ion-icon>
             +99
           </ion-col>
         </ion-row>
