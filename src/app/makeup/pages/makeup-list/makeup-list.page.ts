@@ -21,6 +21,7 @@ export class MakeupListPage implements OnInit {
 
   // makeups$: Observable<MakeUp[]>;
   artists$: Observable<Artist[]>;
+  modal: any;
 
   subscribe: any;
 
@@ -55,10 +56,14 @@ export class MakeupListPage implements OnInit {
                         navigator['app'].exitApp();
                       }
                     } else {
-                      if (modalCtrl.getTop()) {
-                        modalCtrl.dismiss();
-                      }
-                      this.navCtrl.pop();
+                      modalCtrl.dismiss().then((val) => {
+                        this.modal = val;
+                        // console.log('val = ' + val);
+                      }, (reason) => {
+                        this.modal = reason;
+                        // console.log('reason = ' + reason);
+                        this.navCtrl.pop();
+                      });
                     }
                 });
               });

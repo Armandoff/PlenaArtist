@@ -28,26 +28,26 @@
 
 
           <ion-item>
-            <ion-input type="text" placeholder="Foto de perfil" formControlName="image" disabled></ion-input>
-            <ion-button (click)="openGalery('fotoPerfil', 0)">Escolher foto</ion-button>
+            <ion-input type="text" placeholder="Foto de perfil" *ngIf="false" formControlName="image" disabled></ion-input>
+            <ion-button (click)="openGalery('fotoPerfil', 0)">Foto de perfil</ion-button>
             <ion-label> {{ uploadPerfilPercent | async }}</ion-label>
             <!--<ion-note slot="end" color="danger" *ngIf="image.dirty && image.hasError('required')">Obrigatório</ion-note>-->
           </ion-item>
 
-          <!--
+          
             <ion-item>
               <ion-label>Especialidades</ion-label>
-              <ion-select multiple="true" cancelText="Cancel" okText="Ok" formControlName="specialties">
+              <ion-select [(ngModel)]="artist.specialties" multiple="true" cancelText="Cancel" okText="Ok" formControlName="specialties">
                 <ion-select-option *ngFor="let ev of events">{{ev.val}}</ion-select-option>
                 <ion-note slot="end" color="danger" *ngIf="specialties.dirty && specialties.hasError('required')">
                   Obrigatório
                 </ion-note>
               </ion-select>
             </ion-item>
-          -->
+          
 
           <ion-item>
-            <ion-textarea placeholder="Entre com uma breve descrição do seu trabalho" formControlName="description">
+            <ion-textarea placeholder="Entre com uma breve descrição do seu trabalho (Opcional)" formControlName="description">
             </ion-textarea>
           </ion-item>
 

@@ -55,8 +55,8 @@
 .circle {
   //background-color: #aaa;
   border-radius: 50%;
-  width: 140px;
-  height: 140px;
+  width: 130px;
+  height: 130px;
   overflow: hidden;
   margin: auto;
   //position: relative;
@@ -89,8 +89,9 @@
   }
   
   .info {
-    padding-top: 4px;
+    //padding-top: 4px;
     overflow: hidden;
+    font-family: Times, Times New Roman, serif !important;
   }
   
   /* Profile edit button */

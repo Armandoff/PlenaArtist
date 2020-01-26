@@ -206,7 +206,7 @@ export class EditProfilePage implements OnInit {
 
   private createForm(): void {
     this.registerForm = this.fb.group({
-      // specialties: ['', [Validators.required]],
+      specialties: ['', [Validators.required]],
       image: [""],
       description: [this.artist.description],
       phone: [this.artist.phone, [Validators.required]]
@@ -216,10 +216,10 @@ export class EditProfilePage implements OnInit {
     });
   }
 
-  /*
+
   get specialties(): FormControl {
     return <FormControl>this.registerForm.get('specialties');
-  } */
+  }
 
   get image(): FormControl {
     return <FormControl>this.registerForm.get("image");
