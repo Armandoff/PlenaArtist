@@ -1,4 +1,3 @@
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
@@ -11,16 +10,16 @@ import { AuthService } from 'src/app/core/services/auth.service';
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
-export class AppComponent {
+export class AppComponent   {
 
   pages: { url: string, direction: string, icon: string, text: string }[];
   user: firebase.User;
 
   constructor(
-    private authService: AuthService,
-    private platform: Platform,
-    private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+              private authService: AuthService,
+              private platform: Platform,
+              private splashScreen: SplashScreen,
+              private statusBar: StatusBar
   ) {
     this.initializeApp();
   }
@@ -29,7 +28,7 @@ export class AppComponent {
 
     this.pages = [
       { url: '/makeup-profile', direction: 'forward', icon: 'document', text: 'Meu Perfil'},
-      { url: '/makeup', direction: 'forward', icon: 'apps', text: 'Lista de Maquiadoras'},
+      { url: '/makeup', direction: 'forward', icon: 'apps', text: 'Maquiadoras'},
       { url: '/edit-profile', direction: 'forward', icon: 'calendar', text: 'Configurações'},
       { url: '/makeup-profile', direction: 'forward', icon: 'business', text: 'Pendente'},
     ];

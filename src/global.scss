@@ -88,3 +88,23 @@ a {
   padding-top: 3px;
   padding-left: 10px;
 }
+
+.av {
+  //background-color: #aaa;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  overflow: hidden;
+  margin: auto;
+  box-shadow: 0px 0px 20px 0px pink;
+  //position: relative;
+}
+
+.av img {
+  //position: absolute;
+  margin: auto;
+  bottom: 0;
+  width: 100%;
+  //transform: scale(1);
+  object-fit: contain;
+}

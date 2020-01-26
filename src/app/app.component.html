@@ -7,9 +7,16 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content>
+    <ion-content >
+
+
+      <div class="av" justify-content-center align-items-center>
+        <img src="./assets/avatar.jpg"  alt="">
+      </div>
+
+
       <ion-list>
-        <ion-list-header *ngIf="user">{{ user.displayName }}</ion-list-header>
+        <ion-list-header style="font-size: 25px; color: rgb(83, 82, 82); font-family: Times, Times New Roman, serif;" *ngIf="user" justify-content-center align-items-center>{{ user.displayName }}</ion-list-header>
         <ion-menu-toggle autoHide="false">
             <ion-item button *ngFor="let page of pages" [routerLink]="page.url" [routerDirection]="page.direction">
               <ion-icon slot="start" [name]="page.icon"></ion-icon>
